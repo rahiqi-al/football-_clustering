@@ -1,0 +1,29 @@
+DATA : 
+   ACOUNT_DATABASE : hugomathien/soccer
+   DATABASE_URL : /home/ali/Desktop/EuroFootballClustering/data/database.sqlite
+
+QUERY : 
+   PLAYER_QUERY : select * from  Player p  join Player_Attributes pa on p.player_api_id== pa.player_api_id;
+   TEAM_QUERY : select * from Team t join Team_Attributes ta on t.team_api_id == ta.team_api_id;
+   COUNTRY_QUERY : select * from  League l  join Country c on l.country_id== c.id;
+   MATCH_QUERY : select * from Match ;
+
+COLUMNS:
+   DROP_PLAYER : ['player_fifa_api_id']
+   DROP_TEAM :  ['team_fifa_api_id']
+   DROP_COUNTRY: ['country_id']
+   DROP_MATCH : ['league_id','B365H', 'B365D', 'B365A', 'BWH', 'BWD', 'BWA', 'IWH', 'IWD', 'IWA', 'LBH', 'LBD', 'LBA', 'PSH', 'PSD', 'PSA', 'WHH', 'WHD', 'WHA', 'SJH', 'SJD', 'SJA', 'VCH', 'VCD', 'VCA', 'GBH', 'GBD', 'GBA', 'BSH', 'BSD', 'BSA']
+
+   # use in the general database to only keep this column
+   KEEP_PLAYER : 
+   KEEP_TEAM : 
+   KEEP_COUNTRY : 
+   KEEP_MATCH : 
+
+
+
+
+
+
+
+         
