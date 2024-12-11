@@ -1,6 +1,8 @@
 import sqlite3
 import pandas as pd
 from config.config import config
+from sklearn.preprocessing import MinMaxScaler,StandardScaler
+from sklearn.preprocessing import LabelEncoder,OneHotEncoder
 
 
 
@@ -53,12 +55,76 @@ def reterive_clean_data(prompt):
     # here i start transforming data for model (outliers,standarization,encoding)
     # i need to  write the code here
 
-    
-    elif prompt == 'team':
-        return
+    df_player['preferred_foot'] = df_player['preferred_foot'].fillna(df_player['preferred_foot'].mode()[0])
+    df_player['attacking_work_rate'] = df_player['attacking_work_rate'].fillna(df_player['attacking_work_rate'].mode()[0])
+    df_player['defensive_work_rate'] = df_player['defensive_work_rate'].fillna(df_player['defensive_work_rate'].mode()[0])
+
+
+    df_player['positioning'] = df_player['positioning'].fillna(df_player['positioning'].median())
+    df_player['penalties'] = df_player['penalties'].fillna(df_player['penalties'].median())
+    df_player['finishing'] = df_player['finishing'].fillna(df_player['finishing'].median())
+    df_player['crossing'] = df_player['crossing'].fillna(df_player['crossing'].median())
+    df_player['short_passing'] = df_player['short_passing'].fillna(df_player['short_passing'].median())
+    df_player['long_passing'] = df_player['long_passing'].fillna(df_player['long_passing'].median())
+    df_player['shot_power'] = df_player['shot_power'].fillna(df_player['shot_power'].median())
+    df_player['aggression'] = df_player['aggression'].fillna(df_player['aggression'].median())
+    df_player['free_kick_accuracy'] = df_player['free_kick_accuracy'].fillna(df_player['free_kick_accuracy'].median())
     
 
-    return 
+    scaler = StandardScaler()
+    df_player[['overall_rating',
+    'potential',
+    'height',
+    'weight',
+    'positioning',
+    'penalties',
+    'finishing',
+    'crossing',
+    'short_passing',
+    'long_passing',
+    'shot_power',
+    'aggression',
+    'free_kick_accuracy']]=scaler.fit_transform(df_player[['overall_rating',
+    'potential',
+    'height',
+    'weight',
+    'positioning',
+    'penalties',
+    'finishing',
+    'crossing',
+    'short_passing',
+    'long_passing',
+    'shot_power',
+    'aggression',
+    'free_kick_accuracy']])
+
+
+    df_player['defensive_work_rate']=df_player['defensive_work_rate'].apply(lambda x : 'medium' if x not in ['medium','high','low'] else x)
+    df_player['attacking_work_rate']=df_player['attacking_work_rate'].apply(lambda x : 'medium' if x not in ['medium','high','low'] else x)
+    
+
+
+    label_encoder =LabelEncoder()
+    df_player['preferred_foot']=label_encoder.fit_transform(df_player['preferred_foot'])
+    df_player['attacking_work_rate']=label_encoder.fit_transform(df_player['attacking_work_rate'])
+    df_player['defensive_work_rate']=label_encoder.fit_transform(df_player['defensive_work_rate'])
+
+
+    if prompt == 'player':
+        return df_player
+    
+
+
+    team_int = ['buildUpPlaySpeed', 'buildUpPlayPassing', 'chanceCreationPassing', 'chanceCreationCrossing', 'chanceCreationShooting', 'defencePressure', 'defenceAggression']
+    team_obj = ['buildUpPlaySpeedClass', 'buildUpPlayDribblingClass', 'buildUpPlayPassingClass', 'chanceCreationPassingClass', 'chanceCreationCrossingClass', 'chanceCreationShootingClass', 'defencePressureClass', 'defenceAggressionClass',  'defenceDefenderLineClass']
+    
+    df_team[team_int]=scaler.fit_transform(df_team[team_int])
+
+    for ele in team_obj:
+        df_team[ele]=label_encoder.fit_transform(df_team[ele])
+
+
+    return df_team
 
 
     
