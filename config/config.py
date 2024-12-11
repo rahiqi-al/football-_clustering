@@ -26,6 +26,8 @@ class config():
     keep_player = config_data['COLUMNS']['KEEP_PLAYER']
     keep_team = config_data['COLUMNS']['KEEP_TEAM']
     keep_match = config_data['COLUMNS']['KEEP_MATCH']
+    cluster_player = config_data['COLUMNS']['CLUSTER_PLAYER']
+    cluster_team = config_data['COLUMNS']['CLUSTER_TEAM']
 
 
 

@@ -50,8 +50,10 @@ def reterive_clean_data(prompt):
         return df_match,df_team,df_player
     
 
-    # here you start transforming data for model (outliers,standarization,encoding)
+    # here i start transforming data for model (outliers,standarization,encoding)
+    # i need to  write the code here
 
+    
     elif prompt == 'team':
         return
     

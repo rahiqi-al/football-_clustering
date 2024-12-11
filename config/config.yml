@@ -20,8 +20,8 @@ COLUMNS:
    KEEP_MATCH : ['league_name', 'country_name', 'season', 'home_team', 'away_team', 'home_team_goal', 'away_team_goal']
    
 
-   CLUSTER_PLAYER : []
-   CLUSTER_TEAM: []
+   CLUSTER_PLAYER : ['overall_rating', 'potential', 'height', 'weight', 'preferred_foot', 'attacking_work_rate', 'positioning','penalties', 'finishing', 'crossing', 'short_passing', 'long_passing', 'shot_power', 'aggression', 'free_kick_accuracy', 'defensive_work_rate']
+   CLUSTER_TEAM: [ 'buildUpPlaySpeed', 'buildUpPlaySpeedClass', 'buildUpPlayDribblingClass', 'buildUpPlayPassing', 'buildUpPlayPassingClass', 'chanceCreationPassing', 'chanceCreationPassingClass', 'chanceCreationCrossing', 'chanceCreationCrossingClass', 'chanceCreationShooting', 'chanceCreationShootingClass', 'defencePressure', 'defencePressureClass', 'defenceAggression', 'defenceAggressionClass', 'defenceDefenderLineClass']
 
 
 
