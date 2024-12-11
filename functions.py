@@ -41,17 +41,16 @@ def reterive_clean_data(prompt):
     df_player['date'] = pd.to_datetime(df_player['date'])
     df_player['season'] = df_player['date'].apply(lambda x: f"{x.year}/{x.year + 1}" if x.month >= 8 else f"{x.year - 1}/{x.year}")
 
-
-
+    df_player['potential'].fillna(df_player['potential'].mean(), inplace = True)
+    df_player['overall_rating'].fillna(df_player['overall_rating'].mean(), inplace = True)
+    # here you done evrething for analyse general
 
     if prompt == 'general':
-
-
 
         return df_match,df_team,df_player
     
 
-
+    # here you start transforming data for model (outliers,standarization,encoding)
 
     elif prompt == 'team':
         return

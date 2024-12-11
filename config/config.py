@@ -23,6 +23,12 @@ class config():
     drop_team = config_data['COLUMNS']['DROP_TEAM']
     drop_country = config_data['COLUMNS']['DROP_COUNTRY']
     drop_match = config_data['COLUMNS']['DROP_MATCH']
+    keep_player = config_data['COLUMNS']['KEEP_PLAYER']
+    keep_team = config_data['COLUMNS']['KEEP_TEAM']
+    keep_match = config_data['COLUMNS']['KEEP_MATCH']
+
+
+
 
 
     database_url = os.getenv('DATABASE_URL')
