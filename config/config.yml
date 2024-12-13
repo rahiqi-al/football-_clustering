@@ -23,6 +23,7 @@ COLUMNS:
    CLUSTER_PLAYER : ['overall_rating', 'potential', 'height', 'weight', 'preferred_foot', 'attacking_work_rate', 'positioning','penalties', 'finishing', 'crossing', 'short_passing', 'long_passing', 'shot_power', 'aggression', 'free_kick_accuracy', 'defensive_work_rate']
    CLUSTER_TEAM: [ 'buildUpPlaySpeed', 'buildUpPlaySpeedClass', 'buildUpPlayDribblingClass', 'buildUpPlayPassing', 'buildUpPlayPassingClass', 'chanceCreationPassing', 'chanceCreationPassingClass', 'chanceCreationCrossing', 'chanceCreationCrossingClass', 'chanceCreationShooting', 'chanceCreationShootingClass', 'defencePressure', 'defencePressureClass', 'defenceAggression', 'defenceAggressionClass', 'defenceDefenderLineClass']
 
+  # CLUSTER_PLAYER : ['overall_rating', 'potential', 'height', 'weight', 'preferred_foot', 'attacking_work_rate', 'positioning','penalties', 'finishing', 'crossing', 'short_passing', 'long_passing', 'shot_power', 'aggression', 'free_kick_accuracy', 'defensive_work_rate']
 
 
 
