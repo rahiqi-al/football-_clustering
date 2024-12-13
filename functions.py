@@ -71,7 +71,7 @@ def reterive_clean_data(prompt):
     df_player['free_kick_accuracy'] = df_player['free_kick_accuracy'].fillna(df_player['free_kick_accuracy'].median())
     
 
-    scaler = StandardScaler()
+    scaler = MinMaxScaler()
     df_player[['overall_rating',
     'potential',
     'height',
